@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Table (name = "phone_verifications")
 @Entity
@@ -18,20 +19,15 @@ public class PhoneVerification {
     @GeneratedValue
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @Column(name = "user_id", nullable = false)
     @NonNull
-    private User user;
+    private UUID userId;
 
     @Column(nullable = false)
     @NonNull
-    private String verificationCode;
+    private String phone;
 
     @Column(nullable = false)
     @NonNull
-    private LocalDateTime expiresAt;
-
-    @Column(nullable = false)
-    @NonNull
-    private LocalDateTime createdAt;
+    private Boolean verified;
 }

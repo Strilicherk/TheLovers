@@ -23,45 +23,28 @@ public class User {
     @GeneratedValue
     private UUID id;
 
-    @Column(nullable = false)
-    @NonNull
     private String name;
 
-    @Column(unique = true, nullable = false)
-    @NonNull
+    @Column(unique = true)
     private String email;
-
-    @Column(nullable = false)
-    @NonNull
-    private String passwordHash;
 
     @Column(unique = true, nullable = false)
     @NonNull
     private String phone;
 
-    @Column(nullable = false)
-    @NonNull
     private Boolean userVerified;
 
-    @Column(nullable = false)
-    @NonNull
     private LocalDate birthDate;
 
-    @Column(nullable = false)
-    @NonNull
     private LocalDateTime createdAt;
 
-    @Column(nullable = false)
-    @NonNull
     private LocalDateTime updatedAt;
 
     @ManyToOne
-    @JoinColumn(name = "gender_id", nullable = false)
-    @NonNull
+    @JoinColumn(name = "gender_id")
     private Gender gender;
 
     @OneToOne
-    @JoinColumn(name = "location_id", nullable = false)
-    @NonNull
+    @JoinColumn(name = "location_id")
     private UserLocation location;
 }

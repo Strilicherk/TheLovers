@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import org.locationtech.jts.geom.Point;
 import java.util.UUID;
 
 @Table(name = "user_locations")
@@ -38,4 +38,7 @@ public class UserLocation {
     @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;
+
+    @Column(columnDefinition = "geography(Point,4326)", nullable = false)
+    private Point location;
 }

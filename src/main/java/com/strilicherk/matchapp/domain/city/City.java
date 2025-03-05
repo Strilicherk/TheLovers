@@ -4,7 +4,7 @@ import com.strilicherk.matchapp.domain.state.State;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Table (name = "cities")
+@Table(name = "cities")
 @Entity
 @Setter
 @Getter
