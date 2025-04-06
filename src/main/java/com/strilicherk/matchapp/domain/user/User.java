@@ -5,10 +5,8 @@ import com.strilicherk.matchapp.domain.user_location.UserLocation;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.UUID;
 
 @Table(name = "users")
@@ -22,6 +20,8 @@ public class User {
     @Id
     @GeneratedValue
     private UUID id;
+
+    private int role;
 
     private String name;
 

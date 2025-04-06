@@ -1,0 +1,12 @@
+package com.strilicherk.matchapp.repositories;
+
+import com.strilicherk.matchapp.domain.authentication.RefreshToken;
+import lombok.NonNull;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+import java.util.UUID;
+
+public interface RefreshTokenRepository extends JpaRepository<RefreshToken, UUID> {
+    Optional<RefreshToken> findByRefreshToken(@NonNull String deviceId);
+}

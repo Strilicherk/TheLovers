@@ -1,14 +1,13 @@
 package com.strilicherk.matchapp.exceptions;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
+import org.springframework.http.HttpStatus;
 
 @Getter
 public class VerificationException extends RuntimeException {
-    private final Integer statusCode;
+    private final HttpStatus statusCode;
 
-    public VerificationException(Integer statusCode, String message) {
+    public VerificationException(HttpStatus statusCode, String message) {
         super(message);
         this.statusCode = statusCode;
     }

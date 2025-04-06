@@ -1,11 +1,10 @@
 package com.strilicherk.matchapp.controller;
 
 import com.strilicherk.matchapp.domain.shared.ResponseDTO;
-import com.strilicherk.matchapp.exceptions.VerificationException;
-import com.strilicherk.matchapp.services.PhoneVerificationService;
+import com.strilicherk.matchapp.services.login.PhoneVerificationService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +14,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/phone-verification")
+@Tag(name = "PhoneVerification", description = "Endpoints for send and validate phone numbers with SMS code.")
 public class PhoneVerificationController {
 
     private final PhoneVerificationService phoneVerificationService;
@@ -25,13 +25,21 @@ public class PhoneVerificationController {
     }
 
     @PostMapping("/request")
+    @Operation(
+            summary = "Send code.",
+            description = "Send a six digit code to the number to validate."
+    )
     public ResponseDTO<Boolean> requestPhoneVerification(@RequestParam String phone, @RequestParam UUID userId) {
         phoneVerificationService.requestPhoneVerification(phone, userId);
-        return new ResponseDTO<>(200, "Verification code sent.", Boolean.TRUE);
+        return new ResponseDTO<>(200, "Verification code sent.",true, true);
     }
 
     @PostMapping("/verify")
-    public ResponseDTO<Boolean> verifyPhone(@RequestParam String phone, @RequestParam String verificationCode) {
+    @Operation(
+            summary = "Validate code.",
+            description = "Compare the six digits code with the phone number to validate user."
+    )
+    public ResponseDTO<String> verifyPhone(@RequestParam String phone, @RequestParam String verificationCode) {
         return phoneVerificationService.verifyPhone(phone, verificationCode);
     }
 }
