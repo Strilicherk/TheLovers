@@ -26,7 +26,7 @@ class PhoneNumberMask : VisualTransformation {
         )
     }
 
-    class PhoneOffsetMapping() : OffsetMapping {
+    class PhoneOffsetMapping : OffsetMapping {
         override fun originalToTransformed(offset: Int): Int {
             var transformedOffset = offset
             if (offset >= 1) transformedOffset += 1 // (

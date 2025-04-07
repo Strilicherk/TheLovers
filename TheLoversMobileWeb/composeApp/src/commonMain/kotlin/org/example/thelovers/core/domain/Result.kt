@@ -36,11 +36,4 @@ inline fun <T, E: Error> Result<T, E>.onError(action: (E) -> Unit): Result<T, E>
     }
 }
 
-inline fun <T, E : Error, F : Error> Result<T, E>.mapError(transform: (E) -> F): Result<T, F> {
-    return when (this) {
-        is Result.Success -> Result.Success(data)
-        is Result.Error -> Result.Error(transform(error))
-    }
-}
-
 typealias EmptyResult<E> = Result<Unit, E>
