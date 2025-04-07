@@ -1,4 +1,4 @@
-rootProject.name = "TheLovers"
+rootProject.name = "TheLoversMobileWeb"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
