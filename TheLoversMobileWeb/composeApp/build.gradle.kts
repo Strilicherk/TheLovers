@@ -44,6 +44,7 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+//            implementation(libs.navigation.compose)
 
             // Koin
             implementation(libs.koin.android)
@@ -53,7 +54,7 @@ kotlin {
             implementation(libs.androidx.core.ktx)
 
             // Ktor
-            implementation(libs.ktor.client.core)
+            implementation(libs.bundles.ktor.android)
 
             // Lifecycle and ViewModel
             implementation(libs.lifecycle.viewmodel)
@@ -83,6 +84,7 @@ kotlin {
             // Koin
             api(libs.koin.core)
             implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
 
             // Ktor
             implementation(libs.bundles.ktor.common)
@@ -96,7 +98,7 @@ kotlin {
 //            implementation(libs.lifecycle.viewmodel.js)
 
             // Ktor
-            implementation(libs.ktor.client.js)
+            implementation(libs.bundles.ktor.js)
         }
 
     }
@@ -130,5 +132,8 @@ android {
 }
 dependencies {
     implementation(libs.androidx.foundation.layout.android)
+    implementation(libs.androidx.foundation.android)
+    implementation(libs.androidx.ui.android)
+    implementation(libs.androidx.runtime.android)
     debugImplementation(libs.androidx.ui.tooling)
 }

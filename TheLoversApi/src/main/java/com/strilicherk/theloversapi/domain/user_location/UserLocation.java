@@ -3,7 +3,7 @@ package com.strilicherk.theloversapi.domain.user_location;
 import com.strilicherk.theloversapi.domain.city.City;
 import com.strilicherk.theloversapi.domain.country.Country;
 import com.strilicherk.theloversapi.domain.state.State;
-import com.strilicherk.theloversapi.domain.user.User;
+import com.strilicherk.theloversapi.feature_user.domain.model.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -41,4 +41,7 @@ public class UserLocation {
 
     @Column(columnDefinition = "geography(Point,4326)", nullable = false)
     private Point location;
+
+    private float latitude;
+    private float longitude;
 }

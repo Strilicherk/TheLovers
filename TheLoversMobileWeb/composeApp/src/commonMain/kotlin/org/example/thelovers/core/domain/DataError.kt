@@ -7,7 +7,9 @@ sealed interface DataError: Error {
         NO_INTERNET,
         SERVER,
         SERIALIZATION,
-        UNKNOWN
+        UNKNOWN,
+        DENIED,
+        INVALID_PHONE_NUMBER
     }
 
     enum class Local: DataError {

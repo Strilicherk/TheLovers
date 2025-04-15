@@ -10,8 +10,8 @@ sealed interface Route {
     data object WelcomeScreen : Route
 
     @Serializable
-    data object InsertPhoneNumber: Route
+    data object SendPhoneNumberScreen : Route
 
     @Serializable
-    data object ValidatePhoneNumber: Route
+    data class ValidateSmsCodeScreen(val phone: String): Route
 }

@@ -1,6 +1,8 @@
 package org.example.thelovers.di
 
+import io.ktor.client.engine.HttpClientEngine
 import org.koin.core.module.Module
 
-actual val plataformModule: Module
-    get() = TODO("Not yet implemented")
+actual fun provideHttpClientEngine(): HttpClientEngine {
+    TODO("Not yet implemented")
+}
