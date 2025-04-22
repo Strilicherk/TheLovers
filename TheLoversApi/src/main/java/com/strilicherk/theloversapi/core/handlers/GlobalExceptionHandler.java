@@ -1,11 +1,10 @@
 package com.strilicherk.theloversapi.core.handlers;
 
 import com.strilicherk.theloversapi.core.exceptions.BusinessException;
-import com.strilicherk.theloversapi.domain.shared.ResponseDTO;
-import com.strilicherk.theloversapi.exceptions.ErrorResponse;
-import com.strilicherk.theloversapi.exceptions.GenericException;
-import com.strilicherk.theloversapi.feature_user.exceptions.UserNotFoundException;
-import com.strilicherk.theloversapi.exceptions.VerificationException;
+import com.strilicherk.theloversapi.core.domain.model.shared.ResponseDTO;
+import com.strilicherk.theloversapi.core.exceptions.ErrorResponse;
+import com.strilicherk.theloversapi.core.exceptions.GenericException;
+import com.strilicherk.theloversapi.core.exceptions.VerificationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

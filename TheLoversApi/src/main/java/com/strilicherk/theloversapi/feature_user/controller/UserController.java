@@ -1,10 +1,13 @@
 package com.strilicherk.theloversapi.feature_user.controller;
 
-import com.strilicherk.theloversapi.domain.shared.ResponseDTO;
+import com.strilicherk.theloversapi.core.domain.model.shared.ResponseDTO;
 import com.strilicherk.theloversapi.feature_user.domain.dto.UserCreateDTO;
+import com.strilicherk.theloversapi.feature_user.domain.dto.UserResponseDTO;
+import com.strilicherk.theloversapi.feature_user.domain.mappers.UserMapper;
 import com.strilicherk.theloversapi.feature_user.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,7 +24,8 @@ public class UserController {
 
     @PostMapping("/create-user")
     @Operation(summary = "Create user.", description = "Create an user, only phone number necessary.")
-    public ResponseDTO<String> createUser(@RequestBody UserCreateDTO userCreateDTO) {
-        return userService.createUser(userCreateDTO);
+    public ResponseDTO<UserResponseDTO> createUser(@RequestBody UserCreateDTO userCreateDTO) {
+        val result = userService.createUser(userCreateDTO);
+        return new ResponseDTO<>(200, "User created.", true, UserMapper.fromUserToUserResponseDto(result));
     }
 }

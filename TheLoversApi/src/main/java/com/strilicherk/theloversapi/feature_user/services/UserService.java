@@ -1,16 +1,14 @@
 package com.strilicherk.theloversapi.feature_user.services;
 
-import com.strilicherk.theloversapi.domain.shared.ResponseDTO;
 import com.strilicherk.theloversapi.feature_user.domain.dto.UserUpdateDTO;
-import com.strilicherk.theloversapi.feature_user.domain.model.User;
+import com.strilicherk.theloversapi.core.domain.model.user.User;
 import com.strilicherk.theloversapi.feature_user.domain.dto.UserCreateDTO;
-import com.strilicherk.theloversapi.feature_user.exceptions.UserAlreadyExistsException;
 import com.strilicherk.theloversapi.feature_user.exceptions.UserNotFoundException;
 import com.strilicherk.theloversapi.feature_user.repositories.UserRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -29,16 +27,18 @@ public class UserService {
 
             if (existingUser.isPresent()) {
                 log.info("User already exists.");
-                throw new UserAlreadyExistsException("User already exists.");
+                return existingUser.get();
             }
 
-            User user = User.createFromDTO(data.phone());
+            User user = new User();
+            user.setPhone(data.phone());
             userRepository.save(user);
 
             log.info("User created successfully.");
             return user;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (DataIntegrityViolationException e) {
+            log.error("Error while trying to save new user: invalid data or absent data");
+            throw new DataIntegrityViolationException(e.getMessage());
         }
     }
 
@@ -51,7 +51,7 @@ public class UserService {
             }
 
             User user = optionalUser.get();
-            user.updateFromDTO(data);
+            user.update(data.email(), data.email(), null);
             userRepository.save(user);
             return user;
         } catch (Exception e) {
