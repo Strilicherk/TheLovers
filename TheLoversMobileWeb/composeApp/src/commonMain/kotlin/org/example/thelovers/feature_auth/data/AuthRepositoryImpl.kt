@@ -12,11 +12,11 @@ class AuthRepositoryImpl(
         return dataSource.sendPhoneNumber(phone)
     }
 
-    override suspend fun validateSmsCode(
+    override suspend fun sendSmsCode(
         phone: String,
         smsCode: String,
         deviceId: String
-    ): Result<ResponseDTO<Map<String, String>>, DataError.Remote> {
-        return dataSource.validateSmsCode(phone, smsCode, deviceId)
+    ): Result<ResponseDTO<LoginResponseDTO>, DataError.Remote> {
+        return dataSource.sendSmsCode(phone, smsCode, deviceId)
     }
 }

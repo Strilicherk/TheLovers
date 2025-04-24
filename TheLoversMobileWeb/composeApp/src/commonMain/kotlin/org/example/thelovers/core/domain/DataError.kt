@@ -14,6 +14,10 @@ sealed interface DataError: Error {
 
     enum class Local: DataError {
         DISK_FULL,
-        UNKNOWN
+        UNKNOWN,
+        TOKEN_NOT_FOUND,
+        TOKEN_DECRYPTION_FAILED,
+        TOKEN_SAVE_FAILED,
+        TOKEN_CLEAR_FAILED
     }
 }

@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.example.thelovers.core.domain.Result
 import org.example.thelovers.core.presentation.toUiText
-import org.example.thelovers.feature_auth.domain.send_phone_number.SendPhoneNumberUseCase
+import org.example.thelovers.feature_auth.domain.AuthRepository
 
 class SendPhoneNumberViewModel(
-    private val useCase: SendPhoneNumberUseCase
+    private val repository: AuthRepository,
 ) : ViewModel() {
     private val _state = MutableStateFlow(SendPhoneNumberState())
     var state: StateFlow<SendPhoneNumberState> = _state
@@ -42,7 +42,7 @@ class SendPhoneNumberViewModel(
                 }
 
                 viewModelScope.launch {
-                    when (val result = useCase(phone)) {
+                    when (val result = repository.sendPhoneNumber(phone)) {
                         is Result.Success -> {
                             _state.update { it.copy(shouldNavigate = true) }
                         }

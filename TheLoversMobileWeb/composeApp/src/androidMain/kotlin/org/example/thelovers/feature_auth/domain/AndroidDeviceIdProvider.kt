@@ -9,5 +9,4 @@ class AndroidDeviceIdProvider(private val context: Context) : DeviceIdProvider {
     override fun getDeviceId(): String {
         return Settings.Secure.getString(context.contentResolver, Settings.Secure.ANDROID_ID)
     }
-
 }
