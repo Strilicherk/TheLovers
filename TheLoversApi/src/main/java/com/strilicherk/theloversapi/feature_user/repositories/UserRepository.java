@@ -1,6 +1,6 @@
 package com.strilicherk.theloversapi.feature_user.repositories;
 
-import com.strilicherk.theloversapi.feature_user.domain.model.User;
+import com.strilicherk.theloversapi.core.domain.model.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

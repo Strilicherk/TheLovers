@@ -4,7 +4,7 @@
     <string name="button_next">Próximo</string>
 
     <!--    WelcomeScreen-->
-    <string name="welcome_ccreen_register_login">CadastraR/EntraR</string>
+    <string name="welcome_screen_register_login">CadastraR/EntraR</string>
 
     <!--    SendPhoneNumberScreen-->
     <string name="send_phone_number_title">Posso pegar seu número?</string>
@@ -17,21 +17,8 @@
     <string name="validate_sms_code_invalid_code">O código deve ter 6 dígitos.</string>
 
     <!--    Errors-->
-    <string name="search_hint">Search...</string>
-    <string name="close_hint">Clear search</string>
-    <string name="search_results">Search Results</string>
-    <string name="favorites">Favorites</string>
-    <string name="no_search_results">Oops, there aren't any books for your search query.</string>
-    <string name="no_favorite_books">No favorite books yet.</string>
-    <string name="book_cover">Book cover</string>
-    <string name="rating">Rating</string>
-    <string name="pages">Pages</string>
-    <string name="languages">Languages</string>
-    <string name="synopsis">Synopsis</string>
-    <string name="go_back">Go back</string>
-    <string name="mark_as_favorite">Mark as favorite</string>
-    <string name="remove_from_favorites">Remove from favorites</string>
-    <string name="description_unavailable">Description not available.</string>
+    <string name="error_token_not_found">Authentication token not found in local storage.</string>
+    <string name="error_decryption_failed">Failed to decrypt authentication token.</string>
     <string name="error_disk_full">Oops, it seems like your disk is full.</string>
     <string name="error_unknown">Oops, something went wrong.</string>
     <string name="error_request_timeout">The request timed out.</string>
@@ -40,4 +27,6 @@
     <string name="error_serialization">Couldn't parse data.</string>
     <string name="error_request_denied">You don't have permission to do that.</string>
     <string name="error_invalid_phone_number">Invalid phone number.</string>
+    <string name="error_token_saved_failed">Error while trying to save token in local database</string>
+    <string name="error_token_clear_failed">Error while trying to clear tokens from local database</string>
 </resources>

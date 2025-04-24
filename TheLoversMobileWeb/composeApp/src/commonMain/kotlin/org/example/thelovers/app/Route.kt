@@ -7,6 +7,9 @@ sealed interface Route {
     data object AppGraph : Route
 
     @Serializable
+    data object StartupScreen: Route
+
+    @Serializable
     data object WelcomeScreen : Route
 
     @Serializable
@@ -14,4 +17,10 @@ sealed interface Route {
 
     @Serializable
     data class ValidateSmsCodeScreen(val phone: String): Route
+
+    @Serializable
+    data object SwipeScreen : Route
+
+    @Serializable
+    data object CreateProfileScreen: Route
 }
