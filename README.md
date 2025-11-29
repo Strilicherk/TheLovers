@@ -3,7 +3,6 @@
 **Status:** Projeto descontinuado (Foco Educacional)
 
 ## Sobre o Projeto
-## Sobre o Projeto
 
 O TheLovers foi idealizado como um aplicativo de relacionamento voltada para o público alternativo.
 
