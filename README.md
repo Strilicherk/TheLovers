@@ -45,5 +45,9 @@ A API foi construída pensando em escalabilidade e segurança, organizada por fu
 - Segurança: Spring Security, JWT
 - Integrações: Twilio SDK
 
+## Agradecimentos
+Esse projeto **NÃO SERIA POSSÍVEL** se não fosse esse cara aqui: https://www.youtube.com/@PhilippLackner. 
+Todo o conhecimento que eu adquiri relacionado a Kotlin foi de maneira gratuita através dos vídeos dele. Conteúdos atualizados e ótima didática.
+
 ## Nota
 Este código reflete meu estudo aprofundado sobre ecossistemas nativos e segurança em aplicações móveis. Funcionalidades de servidor dependem de variáveis de ambiente e containers Docker para execução.
